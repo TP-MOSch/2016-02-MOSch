@@ -72,6 +72,7 @@ public class UserDataSetDAO {
     @SuppressWarnings("MagicNumber")
     public void updateUser(@NotNull Long userID, @NotNull UserDataSet dataSet, @SuppressWarnings("SameParameterValue") @Nullable Integer multiplier) {
         final UserDataSet oldDataSet = readUserByID(userID);
+        LOGGER.info("Update method used with answer {}", dataSet.getAnswer());
         if (oldDataSet == null) {
             return;
         }

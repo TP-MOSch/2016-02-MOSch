@@ -132,7 +132,7 @@ public class GameWS {
 
                     if (!gameMechanics.getGameSession(builderName).isGameOver()) {
 
-                        LOGGER.info("User {} builds up", builderName);
+                        //LOGGER.info("User {} builds up", builderName);
                         gameMechanics.incrementScore(builderName);
                         final JsonObject json = new JsonObject();
                         json.add("action", new JsonPrimitive("buildOK"));
