@@ -3,6 +3,7 @@ package rest;
 import db.datasets.UserDataSet;
 import game.GameUser;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,7 +23,8 @@ public class UserProfile {
     private Long score = 0L;
     @NotNull
     private Long points = 0L;
-    private String answer = "null";
+    @Nullable
+    private String answer = null;
     @NotNull
     private Boolean starBf = false;
     @NotNull
@@ -108,6 +110,7 @@ public class UserProfile {
         this.points = points;
     }
 
+    @Nullable
     public String getAnswer(){
         return this.answer;
     }

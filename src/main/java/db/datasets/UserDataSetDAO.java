@@ -72,7 +72,6 @@ public class UserDataSetDAO {
     @SuppressWarnings("MagicNumber")
     public void updateUser(@NotNull Long userID, @NotNull UserDataSet dataSet, @SuppressWarnings("SameParameterValue") @Nullable Integer multiplier) {
         final UserDataSet oldDataSet = readUserByID(userID);
-        LOGGER.info("Update method used with answer {}", dataSet.getAnswer());
         if (oldDataSet == null) {
             return;
         }
@@ -84,11 +83,13 @@ public class UserDataSetDAO {
             oldDataSet.setPoints(oldDataSet.getPoints() + multiplier * newScore);
         }
 
-        if (oldDataSet.getAnswer() != "no" && oldDataSet.getAnswer() != "yes") {
-            oldDataSet.setAnswerBf(dataSet.getAnswer());
-            if (oldDataSet.getAnswer() == "yes") {
-                oldDataSet.setPoints(oldDataSet.getPoints() + 1000000L);
-                LOGGER.info("User {} hit correct answer. Congrats!", oldDataSet.getUsername());
+        if (oldDataSet.getAnswer() == null && dataSet.getAnswer() != null) {
+            if (dataSet.getAnswer() == "yes" || dataSet.getAnswer() == "no") {
+                oldDataSet.setAnswerBf(dataSet.getAnswer());
+                if (oldDataSet.getAnswer() == "yes") {
+                    oldDataSet.setPoints(oldDataSet.getPoints() + 1000000L);
+                    LOGGER.info("User {} hit correct answer. Congrats!", oldDataSet.getUsername());
+                }
             }
         }
 

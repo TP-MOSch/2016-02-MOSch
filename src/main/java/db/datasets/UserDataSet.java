@@ -181,7 +181,7 @@ public class UserDataSet implements Serializable { // Serializable Important to 
         this.delayBf = delayBf;
     }
 
-
+    @Nullable
     public String getAnswer(){
         return this.answer;
     }
