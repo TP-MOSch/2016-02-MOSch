@@ -48,8 +48,8 @@ public class UserDataSet implements Serializable { // Serializable Important to 
     @Column(name = "auth_token", unique = true)
     private String authToken;
 
-    @Column(name = "answer", nullable = false)
-    private String answer = "no";
+    @Column(name = "answer")
+    private String answer = "null";
 
     @Column(name = "star_bf", nullable = false)
     private Boolean starBf = false;

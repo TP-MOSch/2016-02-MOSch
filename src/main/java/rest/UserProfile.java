@@ -22,8 +22,7 @@ public class UserProfile {
     private Long score = 0L;
     @NotNull
     private Long points = 0L;
-    @NotNull
-    private String answer = "no";
+    private String answer = "null";
     @NotNull
     private Boolean starBf = false;
     @NotNull
@@ -109,7 +108,6 @@ public class UserProfile {
         this.points = points;
     }
 
-    @NotNull
     public String getAnswer(){
         return this.answer;
     }

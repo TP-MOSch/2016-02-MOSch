@@ -83,7 +83,7 @@ public class UserDataSetDAO {
             oldDataSet.setPoints(oldDataSet.getPoints() + multiplier * newScore);
         }
 
-        if (oldDataSet.getAnswer() != "no" && oldDataSet.getAnswer() != "yes") {
+        if (oldDataSet.getAnswer() != "no" || oldDataSet.getAnswer() != "yes") {
             oldDataSet.setAnswerBf(dataSet.getAnswer());
             if (oldDataSet.getAnswer() == "yes") {
                 oldDataSet.setPoints(oldDataSet.getPoints() + 1000000L);
