@@ -61,6 +61,10 @@ public class UserProfile {
         this.password = password;
     }
 
+    public UserProfile(@NotNull String answer) {
+        this.answer = answer;
+    }
+
     public UserProfile (@NotNull GameUser gameUser){
         this.score = (long)gameUser.getMyHeight();
     }
