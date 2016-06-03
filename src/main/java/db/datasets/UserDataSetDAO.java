@@ -72,9 +72,11 @@ public class UserDataSetDAO {
     @SuppressWarnings("MagicNumber")
     public void updateUser(@NotNull Long userID, @NotNull UserDataSet dataSet, @SuppressWarnings("SameParameterValue") @Nullable Integer multiplier) {
         final UserDataSet oldDataSet = readUserByID(userID);
+
         if (oldDataSet == null) {
             return;
         }
+        LOGGER.info("Update methos used. Old Answer {}, new answer {}", oldDataSet.getAnswer(), dataSet.getAnswer());
         final Long newScore = dataSet.getScore();
         if (oldDataSet.getScore() < newScore) {
             oldDataSet.setScore(newScore);
