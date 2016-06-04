@@ -32,6 +32,8 @@
         </Root>
         <logger name="com.mchange.v2.c3p0">
             <level value="info"/>
+            <AppenderRef ref="AsyncFile"/>
+            <AppenderRef ref="AsyncConsole"/>
         </logger>
     </Loggers>
 </Configuration>
