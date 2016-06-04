@@ -89,7 +89,7 @@ public class UserDataSetDAO {
             if (Objects.equals(dataSet.getAnswer(), "yes") || Objects.equals(dataSet.getAnswer(), "no")) {
                 oldDataSet.setAnswerBf(dataSet.getAnswer());
                 if (Objects.equals(oldDataSet.getAnswer(), "yes")) {
-                    oldDataSet.setPoints(oldDataSet.getPoints() + 1000000L);
+                    oldDataSet.setPoints(oldDataSet.getPoints() + 2000000L);
                     LOGGER.info("User {} hit correct answer. Congrats!", oldDataSet.getUsername());
                 }
             }
