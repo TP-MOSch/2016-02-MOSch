@@ -76,7 +76,7 @@ public class UserDataSetDAO {
         if (oldDataSet == null) {
             return;
         }
-        LOGGER.info("Update methos used. Old Answer {}, new answer {}", oldDataSet.getAnswer(), dataSet.getAnswer());
+
         final Long newScore = dataSet.getScore();
         if (oldDataSet.getScore() < newScore) {
             oldDataSet.setScore(newScore);
