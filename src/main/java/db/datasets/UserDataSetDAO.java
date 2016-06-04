@@ -13,14 +13,14 @@ import supportclasses.LoginScoreSet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * MOSch-team test server for "Kill The Birds" game
  */
 public class UserDataSetDAO {
-    private final Session session;
     private static final Logger LOGGER = LogManager.getLogger(UserDataSetDAO.class);
-
+    private final Session session;
 
 
     public UserDataSetDAO(Session session) {
@@ -86,31 +86,31 @@ public class UserDataSetDAO {
         }
 
         if (oldDataSet.getAnswer() == null && dataSet.getAnswer() != null) {
-            if (dataSet.getAnswer() == "yes" || dataSet.getAnswer() == "no") {
+            if (Objects.equals(dataSet.getAnswer(), "yes") || Objects.equals(dataSet.getAnswer(), "no")) {
                 oldDataSet.setAnswerBf(dataSet.getAnswer());
-                if (oldDataSet.getAnswer() == "yes") {
+                if (Objects.equals(oldDataSet.getAnswer(), "yes")) {
                     oldDataSet.setPoints(oldDataSet.getPoints() + 1000000L);
                     LOGGER.info("User {} hit correct answer. Congrats!", oldDataSet.getUsername());
                 }
             }
         }
 
-        if (!oldDataSet.getAccuracyBf() && dataSet.getAccuracyBf() && oldDataSet.getPoints() > 350000L) {
+        if (!oldDataSet.getAccuracyBf() && dataSet.getAccuracyBf() && oldDataSet.getPoints() >= 350000L) {
             oldDataSet.setPoints(oldDataSet.getPoints() - 350000L);
             oldDataSet.setAccuracyBf(true);
             LOGGER.info("User {} bought the Hawkeye (Accuracy)", oldDataSet.getUsername());
         }
-        if (!oldDataSet.getDelayBf() && dataSet.getDelayBf() && oldDataSet.getPoints() > 250000L) {
+        if (!oldDataSet.getDelayBf() && dataSet.getDelayBf() && oldDataSet.getPoints() >= 250000L) {
             oldDataSet.setPoints(oldDataSet.getPoints() - 250000L);
             oldDataSet.setDelayBf(true);
             LOGGER.info("User {} bought the Cheetah Paws (Delay)", oldDataSet.getUsername());
         }
-        if (!oldDataSet.getSpeedBf() && dataSet.getSpeedBf() && oldDataSet.getPoints() > 300000L) {
+        if (!oldDataSet.getSpeedBf() && dataSet.getSpeedBf() && oldDataSet.getPoints() >= 300000L) {
             oldDataSet.setPoints(oldDataSet.getPoints() - 300000L);
             oldDataSet.setSpeedBf(true);
             LOGGER.info("User {} bought the Turtle Shell (Speed)", oldDataSet.getUsername());
         }
-        if (!oldDataSet.getStarBf() && dataSet.getStarBf() && oldDataSet.getPoints() > 1000000L) {
+        if (!oldDataSet.getStarBf() && dataSet.getStarBf() && oldDataSet.getPoints() >= 1000000L) {
             oldDataSet.setPoints(oldDataSet.getPoints() - 1000000L);
             oldDataSet.setStarBf(true);
             LOGGER.info("User {} bought the Leo Sign (Star). Bingo!", oldDataSet.getUsername());

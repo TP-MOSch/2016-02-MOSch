@@ -65,8 +65,8 @@ public class UserProfile {
         this.answer = answer;
     }
 
-    public UserProfile (@NotNull GameUser gameUser){
-        this.score = (long)gameUser.getMyHeight();
+    public UserProfile(@NotNull GameUser gameUser) {
+        this.score = (long) gameUser.getMyHeight();
     }
 
     @NotNull
@@ -115,11 +115,11 @@ public class UserProfile {
     }
 
     @Nullable
-    public String getAnswer(){
+    public String getAnswer() {
         return this.answer;
     }
 
-    public void setAnswer(@NotNull String answer){
+    public void setAnswer(@NotNull String answer) {
         this.answer = answer;
     }
 

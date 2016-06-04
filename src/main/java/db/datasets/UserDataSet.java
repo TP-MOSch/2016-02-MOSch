@@ -49,7 +49,7 @@ public class UserDataSet implements Serializable { // Serializable Important to 
     private String authToken;
 
     @Column(name = "answer")
-    private String answer = "null";
+    private String answer = null;
 
     @Column(name = "star_bf", nullable = false)
     private Boolean starBf = false;
@@ -84,6 +84,7 @@ public class UserDataSet implements Serializable { // Serializable Important to 
         this.password = user.getPassword();
         this.score = user.getScore();
         this.points = user.getPoints();
+        this.answer = user.getAnswer();
         this.authToken = null;
         this.starBf = user.getStarBf();
         this.accuracyBf = user.getAccuracyBf();
@@ -182,11 +183,11 @@ public class UserDataSet implements Serializable { // Serializable Important to 
     }
 
     @Nullable
-    public String getAnswer(){
+    public String getAnswer() {
         return this.answer;
     }
 
-    public void setAnswerBf(@NotNull String answer){
+    public void setAnswerBf(@NotNull String answer) {
         this.answer = answer;
     }
 
