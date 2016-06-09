@@ -81,12 +81,6 @@
         </dependency>
 
 
-        <!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>5.2.0.Final</version>
-        </dependency>
 
 
         <dependency>
